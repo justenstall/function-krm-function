@@ -1,5 +1,6 @@
-# function-template-go
-[![CI](https://github.com/crossplane/function-template-go/actions/workflows/ci.yml/badge.svg)](https://github.com/crossplane/function-template-go/actions/workflows/ci.yml)
+# function-krm-function
+
+[![CI](https://github.com/crossplane/function-krm-function/actions/workflows/ci.yml/badge.svg)](https://github.com/crossplane/function-krm-function/actions/workflows/ci.yml)
 
 A template for writing a [composition function][functions] in [Go][go].
 
@@ -23,16 +24,16 @@ build functions.
 
 ```shell
 # Run code generation - see input/generate.go
-$ go generate ./...
+go generate ./...
 
 # Run tests - see fn_test.go
-$ go test ./...
+go test ./...
 
 # Build the function's runtime image - see Dockerfile
-$ docker build . --tag=runtime
+docker build . --tag=runtime
 
 # Build a function package - see package/crossplane.yaml
-$ crossplane xpkg build -f package --embed-runtime-image=runtime
+crossplane xpkg build -f package --embed-runtime-image=runtime
 ```
 
 [functions]: https://docs.crossplane.io/latest/concepts/composition-functions
