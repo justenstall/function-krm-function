@@ -1,4 +1,4 @@
-module github.com/crossplane/function-krm-function
+module github.com/justenstall/function-krm-function
 
 go 1.21
 

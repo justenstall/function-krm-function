@@ -1,0 +1,31 @@
+# https://taskfile.dev
+
+version: "3"
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  generate: go generate ./...
+
+  test: 
+    deps: [generate]
+    cmds: 
+    - go test ./...
+
+  build: 
+    deps: [generate]
+    cmds:
+      - docker build . --tag=runtime
+
+  ko:
+    deps: [generate]
+    env:
+      KO_DOCKER_REPO: ghcr.io/justenstall/function-krm-function
+    cmds:
+      - ko build --image-refs=IMAGE
+
+  package:
+    deps: [build]
+    cmds:
+      - crossplane xpkg build -f package --embed-runtime-image=runtime

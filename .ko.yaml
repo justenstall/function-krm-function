@@ -1,0 +1,4 @@
+builds:
+  - id: function
+    dir: . # default is .
+    main: .
